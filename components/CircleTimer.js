@@ -4,6 +4,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { CircularProgress } from 'react-native-svg-circular-progress'
 
+import vibrate from '../utils/vibrate'
+
 // Custom Hooks
 import useTimer from '../hooks/useTimer'
 
@@ -11,7 +13,7 @@ import useTimer from '../hooks/useTimer'
 const fullScreen = Math.floor(Dimensions.get('window').width * (4 / 5))
 
 
-const CircleTimer = ({ length }) => {
+const CircleTimer = ({ setNewTime, length }) => {
 
   let initialTime = 60 * length
   const timer = useTimer(initialTime * 10)
@@ -20,6 +22,10 @@ const CircleTimer = ({ length }) => {
   const remainingMins = Math.floor(remainingSecs / 60)
   const currPercent = ((initialTime * 10 - timer.time) / (initialTime * 10)) * 100
 
+  if (timer.time === 0) {
+    vibrate()
+    setNewTime(0)
+  }
 
   return (
     <View style={styles.container}>

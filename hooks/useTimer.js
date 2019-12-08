@@ -11,7 +11,7 @@ export default function useTimer(startTimeInSeconds) {
     if (!paused) {
       counterID = setInterval(() => {
         setRemainingSeconds(prevState => prevState - 1)
-      }, 100)
+      }, 1)
     } else {
       if (typeof counterID !== 'undefined') {
         clearInterval(counterID)

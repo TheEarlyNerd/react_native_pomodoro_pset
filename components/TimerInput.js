@@ -35,7 +35,7 @@ function StartGameScreen({ onSubmitLength }) {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior='position' keyboardVerticalOffset={60}>
+      <KeyboardAvoidingView behavior='position' keyboardVerticalOffset={60}>
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
           <View style={styles.screen}>
             <Text style={styles.header}>How long would you like your timer to be?</Text>
@@ -68,7 +68,7 @@ function StartGameScreen({ onSubmitLength }) {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    height: Dimensions.get('window').height,
+    marginTop: 300,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 40,

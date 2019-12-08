@@ -13,7 +13,7 @@ const App = () => {
 
   return (timerLength === 0
     ? <TimerInput onSubmitLength={handleSetTimer} />
-    : <CircleTimer length={timerLength} />)
+    : <CircleTimer setNewTime={handleSetTimer} length={timerLength} />)
 
 }
 
